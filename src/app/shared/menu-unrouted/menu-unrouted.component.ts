@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { IUser } from 'src/app/model/model.interfaces';
 
 @Component({
   selector: 'app-menu-unrouted',
@@ -7,8 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuUnroutedComponent implements OnInit {
 
-  constructor() { }
+  strUserName: string = "";
+  oSessionUser: IUser | null = null;
+  strUrl: string = "";
 
+  constructor(
+    private oRouter: Router
+  ) { 
+    
+    this.oRouter.events.subscribe((ev) => {
+      if ( ev instanceof NavigationEnd) {
+        this.strUrl = ev.url;
+      }
+    })
+  }
+
+    
   ngOnInit() {
   }
 
