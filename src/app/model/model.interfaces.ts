@@ -43,6 +43,8 @@ export interface IUser extends IEntity{
     username: string,
     password: string,
     identificador_empresarial: string
+    role: boolean,
+    pedidos: number
 }
 
 export interface IUserPage extends IPage<IUser>{
@@ -67,4 +69,14 @@ export interface IEstablecimiento extends IEntity{
 export interface IEstablecimientoPage extends IPage<IEstablecimiento>{
 }
 
+export interface SessionEvent {
+    type: string;
+}
 
+export interface IToken {
+    jti: string;
+    iss: string;
+    iat: number;
+    exp: number;
+    name: string;
+}
