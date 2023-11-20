@@ -1,33 +1,48 @@
-<nav class="navbar px-4 py-4 has-shadow is-primary">
+<nav class="navbar has-shadow is-primary is-vcentered px-4 py-4">
 
-  <div class="navbar-brand">
-    <a class="navbar-item nav-link" [class.active]="strUrl=='/home'||strUrl=='/'" aria-current="page">
-      <h1 class="title is-uppercase is-size-1 pl-4">BAB</h1>
-    </a>
-    <div>
-      <span class="navbar-text mx-1" *ngIf="strUserName">
-        Logged as <a (click)="doSessionUserView($event)" href="#">{{strUserName}}</a>
-      </span>
-      <span class="navbar-text mx-1" *ngIf="!strUserName">
-        Not logged in
-      </span>
-      <span class="navbar-text mx-1">
-        <a class="nav-link" routerLink="/login" href="#" *ngIf="!strUserName"
-          [class.active]="strUrl.startsWith('/login')">Login</a>
-      </span>
-      <span class="navbar-text mx-1">
-        <a class="nav-link" routerLink="/logout" href="#" *ngIf="strUserName"
-          [class.active]="strUrl.startsWith('/logout')">Logout</a>
-      </span>
+  <!-- Parte izquierda: navbar-start -->
+  <div class="navbar-start divMenu">
+    <a href="#" class="navbar-item has-text-weight-bold has-text-warning is-size-4" routerLink="/home"
+      [class.active]="strUrl=='/home'" aria-current="page">HOME</a>
+    <a href="#" class="navbar-item has-text-weight-bold has-text-warning is-size-4 " routerLink="/login"
+      [class.active]="strUrl.startsWith('/login')" *ngIf="!strUserName">LOGIN</a>
+    <a href="#" class="navbar-item has-text-weight-bold has-text-warning is-size-4">CONTACTO</a>
+  </div>
+
+  <!-- Parte central: navbar-brand -->
+  <div>
+    <div class="navbar-brand divMenu">
+      <a class="navbar-item nav-link " [class.active]="strUrl=='/home'||strUrl=='/'" aria-current="page">
+        <img src="../../../../assets/images/logo.jpg" alt="Logo BAB" class="logo">
+      </a>
     </div>
   </div>
-  <div class=" px-4 py-4 navbar-end">
-    <a href="#" class="navbar-item has-text-weight-bold has-text-light is-size-4" routerLink="/home"
-      [class.active]="strUrl=='/home'" aria-current="page">HOME</a>
-    <a href="#" class="navbar-item has-text-weight-bold has-text-light is-size-4" routerLink="/login"
-      [class.active]="strUrl.startsWith('/login')">LOGIN</a>
-    <a href="#" class="navbar-item has-text-weight-bold has-text-light is-size-4">CONTACTO</a>
-  </div>
+  
+ 
   
 
+  <!-- Parte derecha: Navbar text y enlaces -->
+  <div class="navbar-end row divMenu is-flex is-align-items-center">
+    <a href="#" class="navbar-item has-text-weight-bold has-text-warning is-size-4" routerLink="/admin/user/plist"
+    [class.active]="strUrl.startsWith('/admin/user/plist')" aria-current="page" *ngIf="strUserName && oSessionUser?.role==false">USERS</a>
+  <a href="#" class="navbar-item has-text-weight-bold has-text-warning is-size-4" routerLink="/admin/pedido/plist"
+    [class.active]="strUrl.startsWith('/admin/pedido/plist')" *ngIf="strUserName && oSessionUser?.role==false">PEDIDOS</a>
+  <a href="#" class="navbar-item has-text-weight-bold has-text-warning is-size-4" routerLink="/admin/establecimiento/plist" 
+    [class.active]="strUrl.startsWith('/admin/establecimiento/plist')" *ngIf="strUserName && oSessionUser?.role==false">EMPRESAS</a>
+    <span class="navbar-text mx-1 has-text-weight-bold" *ngIf="strUserName">
+      Logged as <a (click)="doSessionUserView($event)" href="#" class="has-text-warning	">{{strUserName}}</a>
+    </span>
+    <span class="navbar-text mx-1 has-text-weight-bold" *ngIf="!strUserName">
+      Not logged in
+    </span>
+    <span class="navbar-text mx-1">
+      <a class="nav-link has-text-warning	has-text-weight-bold" routerLink="/login" href="#" *ngIf="!strUserName"
+        [class.active]="strUrl.startsWith('/login')" >Login</a>
+    </span>
+    <span class="navbar-text mx-1">
+      <a class="nav-link has-text-warning	has-text-weight-bold" routerLink="/logout" href="#" *ngIf="strUserName"
+        [class.active]="strUrl.startsWith('/logout')">Logout</a>
+    </span>
+  </div>
+  
 </nav>
