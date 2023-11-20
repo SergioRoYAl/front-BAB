@@ -1,31 +1,33 @@
-
 <nav class="navbar px-4 py-4 has-shadow is-primary">
 
   <div class="navbar-brand">
     <a class="navbar-item nav-link" [class.active]="strUrl=='/home'||strUrl=='/'" aria-current="page">
-        <h1 class="title is-uppercase is-size-1 pl-4">BAB</h1>
+      <h1 class="title is-uppercase is-size-1 pl-4">BAB</h1>
     </a>
-    
-</div>
-<div class=" px-4 py-4 navbar-end">
-  <a href="#" class="navbar-item has-text-weight-bold has-text-light is-size-4" routerLink="/home" [class.active]="strUrl=='/home'" aria-current="page">HOME</a>
-  <a href="#" class="navbar-item has-text-weight-bold has-text-light is-size-4" routerLink="/login" [class.active]="strUrl.startsWith('/login')">LOGIN</a>
-  <a href="#" class="navbar-item has-text-weight-bold has-text-light is-size-4">CONTACTO</a>
-</div>
-<div>
-  <span class="navbar-text mx-1" *ngIf="strUserName">
-    Logged as <a (click)="doSessionUserView($event)" href="#">{{strUserName}}</a>
-  </span>
-  <span class="navbar-text mx-1" *ngIf="!strUserName">
-    Not logged in
-  </span>
-  <span class="navbar-text mx-1">
-    <a class="nav-link" routerLink="/login" href="#" *ngIf="!strUserName"  [class.active]="strUrl.startsWith('/login')">Login</a>
-  </span>
-  <span class="navbar-text mx-1">
-    <a class="nav-link" routerLink="/logout" href="#" *ngIf="strUserName" [class.active]="strUrl.startsWith('/logout')">Logout</a>
-  </span>
-</div>
+    <div>
+      <span class="navbar-text mx-1" *ngIf="strUserName">
+        Logged as <a (click)="doSessionUserView($event)" href="#">{{strUserName}}</a>
+      </span>
+      <span class="navbar-text mx-1" *ngIf="!strUserName">
+        Not logged in
+      </span>
+      <span class="navbar-text mx-1">
+        <a class="nav-link" routerLink="/login" href="#" *ngIf="!strUserName"
+          [class.active]="strUrl.startsWith('/login')">Login</a>
+      </span>
+      <span class="navbar-text mx-1">
+        <a class="nav-link" routerLink="/logout" href="#" *ngIf="strUserName"
+          [class.active]="strUrl.startsWith('/logout')">Logout</a>
+      </span>
+    </div>
+  </div>
+  <div class=" px-4 py-4 navbar-end">
+    <a href="#" class="navbar-item has-text-weight-bold has-text-light is-size-4" routerLink="/home"
+      [class.active]="strUrl=='/home'" aria-current="page">HOME</a>
+    <a href="#" class="navbar-item has-text-weight-bold has-text-light is-size-4" routerLink="/login"
+      [class.active]="strUrl.startsWith('/login')">LOGIN</a>
+    <a href="#" class="navbar-item has-text-weight-bold has-text-light is-size-4">CONTACTO</a>
+  </div>
+  
 
 </nav>
-
