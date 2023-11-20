@@ -1,0 +1,12 @@
+.exterior{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.formVertical{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
