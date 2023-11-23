@@ -1,3 +1,49 @@
-<p>
-  admin-user-detail-unrouted works!
-</p>
+<div *ngIf="status!=null">
+  <div class="d-flex justify-content-center my-3">
+      <div class="alert alert-danger" role="alert">
+          {{status!.error.message}} - {{status!.message}}
+      </div>
+  </div>
+</div>
+
+<div *ngIf="status==null">
+  <table class="table table-striped table-hover">
+      <tbody>
+          <tr>
+              <th>Property</th>
+              <th>Value</th>
+          </tr>
+          <tr>
+              <th>id</th>
+              <td>{{oUser.id}}</td>
+          </tr>
+          <tr>
+              <th>Username</th>
+              <td>{{oUser.username}}</td>
+          </tr>
+          <tr>
+              <th>identificador_empresarial</th>
+              <td>{{oUser.identificador_empresarial}}</td>
+          </tr>
+          <tr>
+              <th>nombre_empresa</th>
+              <td>{{oUser.nombre_empresa}}</td>
+          </tr>
+          <tr>
+              <th>role</th>
+              <td>
+                  <span *ngIf="oUser.role==true">Admin</span>
+                  <span *ngIf="oUser.role==false">User</span>
+              </td>
+          </tr>
+          <tr>
+              <th>Pedidos</th>
+              <td>
+                  <a [routerLink]="['/admin','pedido','plist','byuser',oUser.id]"
+                      *ngIf="oUser.pedidos>0">{{oUser.pedidos}}</a>
+                  <span *ngIf="oUser.pedidos==0">0</span>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>

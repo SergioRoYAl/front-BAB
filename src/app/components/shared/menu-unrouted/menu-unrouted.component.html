@@ -24,11 +24,11 @@
   <!-- Parte derecha: Navbar text y enlaces -->
   <div class="navbar-end row divMenu is-flex is-align-items-center">
     <a href="#" class="navbar-item has-text-weight-bold has-text-warning is-size-4" routerLink="/admin/user/plist"
-    [class.active]="strUrl.startsWith('/admin/user/plist')" aria-current="page" *ngIf="strUserName && oSessionUser?.role==false">USERS</a>
+    [class.active]="strUrl.startsWith('/admin/user/plist')" aria-current="page" *ngIf="strUserName && oSessionUser?.role==true">USERS</a>
   <a href="#" class="navbar-item has-text-weight-bold has-text-warning is-size-4" routerLink="/admin/pedido/plist"
-    [class.active]="strUrl.startsWith('/admin/pedido/plist')" *ngIf="strUserName && oSessionUser?.role==false">PEDIDOS</a>
+    [class.active]="strUrl.startsWith('/admin/pedido/plist')" *ngIf="strUserName && oSessionUser?.role==true">PEDIDOS</a>
   <a href="#" class="navbar-item has-text-weight-bold has-text-warning is-size-4" routerLink="/admin/establecimiento/plist" 
-    [class.active]="strUrl.startsWith('/admin/establecimiento/plist')" *ngIf="strUserName && oSessionUser?.role==false">EMPRESAS</a>
+    [class.active]="strUrl.startsWith('/admin/establecimiento/plist')" *ngIf="strUserName && oSessionUser?.role==true">EMPRESAS</a>
     <span class="navbar-text mx-1 has-text-weight-bold" *ngIf="strUserName">
       Logged as <a (click)="doSessionUserView($event)" href="#" class="has-text-warning	">{{strUserName}}</a>
     </span>

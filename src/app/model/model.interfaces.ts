@@ -80,3 +80,5 @@ export interface IToken {
     exp: number;
     name: string;
 }
+
+export type formOperation = 'EDIT' | 'NEW';
